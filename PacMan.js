@@ -4,17 +4,29 @@
 //3. Make it multiplayer doing node
 //4. Add ghosts and powerpellet?
 //$(document).ready(function(){
-window.onload = function() {
+// window.onload = function() {
     var world = [
-        [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
-        [2, 1, 1, 1, 1, 0, 1, 1, 1, 1, 2],
-        [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
-        [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
-        [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
-        [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
-        [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
-        [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
-        [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+        [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+        [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+        [2, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+        [2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+        [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+        [2, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+        [2, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+        [2, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+        [2, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+        [2, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+        [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+        [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+        [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+        [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+        [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+        [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+        [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+        [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+        [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+        [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+        [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
     ];
 
     var score = 0;
@@ -27,7 +39,7 @@ window.onload = function() {
     function displayWorld() {
         var output = '';
         for (var i = 0; i < world.length; i++) {
-            output += "<div class='row'>";
+            output += "\n<div class='row'>\n";
             for (var j = 0; j < world[i].length; j++) {
                 if (world[i][j] == 2) {
                     output += "<div class='brick'></div>";
@@ -38,7 +50,7 @@ window.onload = function() {
                 }
                 //output=output+world[i][j];
             }
-            output += "</div>";
+            output += "\n</div>";
         }
         //console.log(output);
         document.getElementById('world').innerHTML = output;
@@ -60,28 +72,33 @@ window.onload = function() {
     document.onkeydown = function(e) { //this is a callback...
         //may need to add negative protection with the math, not sure why that would ever happen, but play once I get it working...
         if (e.keyCode == 37 && world[pacman.y][pacman.x - 1] != 2) { //left
-            console.log(e.keyCode);
-            pacman.x -= 1;
-        } else if (e.keyCode = 39 && world[pacman.y][pacman.x + 1] != 2) { //right
-            console.log(e.keyCode);
-            pacman.x += 1;
-        } else if (e.keyCode = 38 && world[pacman.y + 1][pacman.x] != 2) { //up
-            console.log(e.keyCode);
-            pacman.y += 1;
-        } else if (e.keyCode = 40 && world[pacman.y - 1][pacman.x] != 2) { //down
-            console.log(e.keyCode);
-            pacman.y -= 1;
+            console.log(e.keyCode + '- we think LEFT');
+            pacman.x-- //-= 1;
+        } else if (e.keyCode == 39 && world[pacman.y][pacman.x + 1] != 2) { //right
+            console.log(e.keyCode + '- we think RIGHT');
+            pacman.x++; // += 1;
+        } else if (e.keyCode == 38 && world[pacman.y - 1][pacman.x] != 2) { //up
+            console.log(e.keyCode + '- we think UP');
+            pacman.y--; // -= 1;
+        } else if (e.keyCode == 40 && world[pacman.y + 1][pacman.x] != 2) { //down
+            console.log(e.keyCode + '- we think DOWN');
+            pacman.y++ // += 1;
+        }
+        else
+        {
+            console.log(`e.keyCode: ${e.keyCode}`);
         }
 
         if (world[pacman.y][pacman.x] == 1) {
             world[pacman.y][pacman.x] = 0;
-            score + -10;
-            displayWorld();
+            score +=10;
             displayScore();
+            displayWorld();
         }
+        displayPacman();
         //console.log(e.keyCode);
 
         //document.getElementByID('pacman').style.left=50+"px";
     }
-};
+// };
 //});

@@ -7,12 +7,22 @@
      background-color: black;
      margin: 0px;
  }
+ #container
+ {
+     margin:0px;
+ }
  
- div.row div {
+
+ .row{
+     height: 20px;
+ }
+
+ div.row div{
      height: 20px;
      width: 20px;
      /*border: 1px solid black;*/
      display: inline-block;
+     margin:0px;
  }
  
  div.brick {
