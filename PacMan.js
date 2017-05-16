@@ -71,18 +71,24 @@
 
     document.onkeydown = function(e) { //this is a callback...
         //may need to add negative protection with the math, not sure why that would ever happen, but play once I get it working...
+        
         if (e.keyCode == 37 && world[pacman.y][pacman.x - 1] != 2) { //left
             console.log(e.keyCode + '- we think LEFT');
+            document.getElementById('pacman').style.transform = "scaleX(-1)";
             pacman.x-- //-= 1;
         } else if (e.keyCode == 39 && world[pacman.y][pacman.x + 1] != 2) { //right
             console.log(e.keyCode + '- we think RIGHT');
+            document.getElementById('pacman').style.transform = "scaleX(1)";
             pacman.x++; // += 1;
         } else if (e.keyCode == 38 && world[pacman.y - 1][pacman.x] != 2) { //up
             console.log(e.keyCode + '- we think UP');
+            document.getElementById('pacman').style.transform = "rotate(270deg)";
             pacman.y--; // -= 1;
         } else if (e.keyCode == 40 && world[pacman.y + 1][pacman.x] != 2) { //down
             console.log(e.keyCode + '- we think DOWN');
+            document.getElementById('pacman').style.transform = "rotate(90deg)";
             pacman.y++ // += 1;
+
         }
         else
         {
