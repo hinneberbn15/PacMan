@@ -51,7 +51,56 @@
      height: 20px;
      position: absolute;
  }
- 
+  div.power_pellet {
+     background-image: url("./images/Pacman/powerpellet.png");
+     background-repeat: no-repeat;
+     background-position: center;
+     background-size: cover;
+     width: 20px;
+     height: 20px;
+ }
+   div.fruit {
+     background-image: url("./images/Pacman/strawberry.png");
+     background-repeat: no-repeat;
+     background-position: center;
+     background-size: cover;
+     width: 20px;
+     height: 20px;
+ }
+
+   div.pink_ghost {
+     background-image: url("./images/Pacman/pink_ghost.gif");
+     background-repeat: no-repeat;
+     background-position: center;
+     background-size: cover;
+     width: 20px;
+     height: 20px;
+ }
+  div.red_ghost {
+     background-image: url("./images/Pacman/red_ghost.gif");
+     background-repeat: no-repeat;
+     background-position: center;
+     background-size: cover;
+     width: 20px;
+     height: 20px;
+ }
+  div.teal_ghost {
+     background-image: url("./images/Pacman/teal_ghost.gif");
+     background-repeat: no-repeat;
+     background-position: center;
+     background-size: cover;
+     width: 20px;
+     height: 20px;
+ }
+  div.orange_ghost {
+     background-image: url("./images/Pacman/orange_ghost.gif");
+     background-repeat: no-repeat;
+     background-position: center;
+     background-size: cover;
+     width: 20px;
+     height: 20px;
+ }
+
  div#score {
      border: 1px solid white;
      width: 30px;
